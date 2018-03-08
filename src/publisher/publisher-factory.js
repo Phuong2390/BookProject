@@ -1,4 +1,4 @@
-const Publisher = require('./publisher');
+ const Publisher = require('./publisher');
 
 class PublisherFactory {
     make(publisherRaw) {
