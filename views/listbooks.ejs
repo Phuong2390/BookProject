@@ -5,7 +5,7 @@
     <title>Title</title>
     <link rel="stylesheet" href="stylesheets/style.css" type="text/css">
     <link rel="stylesheet" href="stylesheets/menu-horizontal.css" type="text/css">
-    <link rel="stylesheet" href="stylesheets/teaat.css" type="text/css">
+    <link rel="stylesheet" href="stylesheets/table.css" type="text/css">
 
 </head>
 <body>
@@ -39,6 +39,7 @@
                     <th>Author</th>
                     <th>Publisher</th>
                     <th>Price</th>
+                    <th>Status</th>
                 </tr>
                 <%for(var i = 0; i < data.length;i++){%>
                 <tr>
@@ -47,9 +48,11 @@
                     <td><%=data[i].author%></td>
                     <td><%=data[i].publisher%></td>
                     <td><%=data[i].price%></td>
-                    <!--<td width="68px">
-                        <a href="/book/<%=data[i].id%>" >Delete</a>
-                    </td>-->
+                    <td>
+                        <a  href="/book/<%=data[i].id%>" >
+                            <input align="center" type="submit" value="Delete">
+                        </a>
+                    </td>
                     <%}%>
                 </tr>
             </table>
