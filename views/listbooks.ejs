@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="stylesheets/style.css" type="text/css">
+    <link rel="stylesheet" href="stylesheets/menu-horizontal.css" type="text/css">
+    <link rel="stylesheet" href="stylesheets/teaat.css" type="text/css">
+
+</head>
+<body>
+<div class="frame">
+    <div class="menu">
+        <div id="menu">
+            <ul>
+                <li><a href="http://localhost:3000/">Home</a></li>
+                <li><a href="http://localhost:3000/books">List Book</a></li>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Home</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="head-right">
+        <div class="wrap">
+            <div class="search">
+                <input class="searchTerm" placeholder="What are you looking for?">
+                <button type="submit" class="searchButton">Search</button>
+            </div>
+        </div>
+    </div>
+    <div class="body">
+        <h1 align="center">LIST BOOK</h1>
+        <div class="container1">
+            <table>
+                <tr>
+                    <th>STT</th>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Publisher</th>
+                    <th>Price</th>
+                </tr>
+                <%for(var i = 0; i < data.length;i++){%>
+                <tr>
+                    <td align="center"><%=data[i].id%></td>
+                    <td><%=data[i].title%></td>
+                    <td><%=data[i].author%></td>
+                    <td><%=data[i].publisher%></td>
+                    <td><%=data[i].price%></td>
+                    <!--<td width="68px">
+                        <a href="/book/<%=data[i].id%>" >Delete</a>
+                    </td>-->
+                    <%}%>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="bottom"></div>
+</div>
+</body>
+</html>
