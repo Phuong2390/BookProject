@@ -24,14 +24,13 @@
     <div class="head-right">
         <div class="wrap">
             <div class="search">
-                <input class="searchTerm" placeholder="What are you looking for?">
+                <input class="searchTerm" placeholder="Search...">
                 <button type="submit" class="searchButton">Search</button>
             </div>
         </div>
     </div>
     <div class="body">
         <h1 align="center">LIST BOOK</h1>
-        <div class="container1">
             <table>
                 <tr>
                     <th>STT</th>
@@ -39,7 +38,7 @@
                     <th>Author</th>
                     <th>Publisher</th>
                     <th>Price</th>
-                    <th>Status</th>
+                    <th>Action</th>
                 </tr>
                 <%for(var i = 0; i < data.length;i++){%>
                 <tr>
@@ -49,14 +48,15 @@
                     <td><%=data[i].publisher%></td>
                     <td><%=data[i].price%></td>
                     <td>
-                        <a  href="/book/<%=data[i].id%>" >
+                        <a href="/book/<%=data[i].id%>" >
+                            <input align="center" type="submit" value="Edit">
                             <input align="center" type="submit" value="Delete">
+
                         </a>
                     </td>
                     <%}%>
                 </tr>
             </table>
-        </div>
     </div>
     <div class="bottom"></div>
 </div>

@@ -19,7 +19,7 @@ router.post('/book',check.checkTitle, check.checkAuthor, check.bookRequest, book
 
 router.put('/book', check.checkTitle, check.checkAuthor, check.putRequest, bookController.editBook);
 
-router.delete('/book/:id', bookController.deleteBook);
+router.get('/book/:id', bookController.deleteBook);
 
 router.get('/search-advance', check.searchCondition, bookController.search);
 
