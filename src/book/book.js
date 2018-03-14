@@ -3,7 +3,7 @@ const Publisher = require('../publisher/publisher');
 class Book{
 
     /**
-     * 
+     *
      * @param {string} title
      * @param {string} author
      */
@@ -13,7 +13,7 @@ class Book{
     }
 
     /**
-     * 
+     *
      * @return {string}
      */
     getTitle() {
@@ -21,7 +21,7 @@ class Book{
     }
 
     /**
-     * 
+     *
      * @return {string}
      */
     getAuthor() {
@@ -29,7 +29,7 @@ class Book{
     }
 
     /**
-     * 
+     *
      * @return {Publisher}
      */
     getPublisher() {
@@ -37,7 +37,7 @@ class Book{
     }
 
     /**
-     * 
+     *
      * @return {number}
      */
     getPrice() {
@@ -45,7 +45,7 @@ class Book{
     }
 
     /**
-     * 
+     *
      * @return {INT}
      */
     getId() {
@@ -53,7 +53,7 @@ class Book{
     }
 
     /**
-     * 
+     *
      * @param {string} title
      * @return self
      */
@@ -63,7 +63,7 @@ class Book{
     }
 
     /**
-     * 
+     *
      * @param {string} author
      * @return self
      */
@@ -73,7 +73,7 @@ class Book{
     }
 
     /**
-     * 
+     *
      * @param {Publisher} publisher
      * @return self
      */
@@ -83,7 +83,7 @@ class Book{
     }
 
     /**
-     * 
+     *
      * @param {number} price
      * @return self
      */
@@ -93,7 +93,7 @@ class Book{
     }
 
     /**
-     * 
+     *
      * @param {INT} id
      * @return self
      */

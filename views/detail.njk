@@ -1,0 +1,24 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+
+    <body>
+    <form action="" method="get">
+        <header>
+            <h2>{{book.getTitle()}}</h2>
+        </header>
+        <small>
+            {{book.getAuthor()}}
+        </small> |
+        <small>
+            {{book.getPublisher().getName()}}
+        </small> |
+        <small>
+            {{book.getPrice()}}
+        </small> |
+        <input type="submit" value="Delete">
+    </form>
+    </body>
+</html>

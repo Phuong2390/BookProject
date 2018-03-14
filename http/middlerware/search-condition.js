@@ -4,7 +4,6 @@ const UndeletedSearchCondition = require('../../src/search-services/undeleted-se
 const IdSearchCondition = require('../../src/search-services/id-search-condition');
 
 module.exports = (req, res, next) => {
-    console.log(req.path);
     req.condition = makeCondition(req);
     next();
 };

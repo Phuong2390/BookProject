@@ -1,20 +1,24 @@
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
+let express = require('express');
+let path = require('path');
+//let favicon = require('serve-favicon');
+let logger = require('morgan');
+let cookieParser = require('cookie-parser');
+let bodyParser = require('body-parser');
 const BookRepository = require('./src/book/book-repository');
 const connection = require('./database/connection');
 const BookFactory = require('./src/book/book-factory');
 const Searcher = require('./src/search-services/searcher');
+const nunjucks = require('nunjucks');
 
-var index = require('./routes/index');
+let index = require('./routes/index');
 
-var app = express();
+let app = express();
 
 // view engine setup
-
+nunjucks.configure('views', {
+	autoescape: true,
+	express: app
+});
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
@@ -35,13 +39,13 @@ app.use('/', index);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  var err = new Error('Not Found');
+  let err = new Error('Not Found');
   err.status = 404;
   next(err);
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function(err, req, res) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};

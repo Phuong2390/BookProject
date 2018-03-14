@@ -25,7 +25,7 @@ let publisherRaw = {
 };
 let bookfactory = new BookFactory();
 let publisherFac = new PublisherFactory();
-let publisher = publisherFac.make(publisherRaw);
+let publisher = PublisherFactory.make(publisherRaw);
 console.log(bookfactory.make(bookrawdata,publisher));
 // let repository = new BookRepository(Connection, new BookFactory());
 // let book = new Book('Title1', 'Author1');
