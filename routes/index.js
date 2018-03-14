@@ -17,5 +17,12 @@ router.get('/search-advance', check.searchCondition, bookController.search);
 
 router.get('/search-basic', check.searchCondition, bookController.search);
 
+router.get('/create', bookController.createForm);
+router.post('/create-book', check.bookRequest, bookController.createBook);
+
+router.get('/delete/:id', bookController.deleteBook);
+
+router.get('/edit', bookController.)
+
 
 module.exports = router;

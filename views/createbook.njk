@@ -12,18 +12,18 @@
     <a href="/create"> Create book </a> |
 </nav>
 <section>
-    <form action="/add" method="get">
+    <form action="/create-book" method="post">
         <label> Title </label>
         <input type="text" name="title" placeholder=" ">
         <label> Author </label>
         <input type="text" name="author" placeholder=" ">
         <label> Publisher </label>
-        <!--<select id="publisher" name="publisher_id">
-            &lt;!&ndash;<option value="">&#45;&#45;chọn&#45;&#45;</option>
+        <select id="publisher" name="publisher_id">
+            <option value="">--Chọn--</option>
             {% for publisher in publishers %}
             <option value="{{publisher.id}}">{{publisher.name}}</option>
-            { % endfor %}&ndash;&gt;
-        </select>-->
+            {% endfor %}
+        </select>
         <label> Price </label>
         <input type="text" name="price" placeholder=" ">
         <input type="submit" value="OK">

@@ -8,23 +8,22 @@ class PublisherProvider {
 	 *
 	 * @param connection
 	 */
-	constructor(connection, factory) {
+	constructor(connection) {
 		//todo
 		this.connection = connection;
 	}
 	
-	providerById (publisherId) {
-		return connection.select()
-				.from('publishers')
-				.where({id : publisherId})
-				.then(results => {
-					let publisher = new Publisher(results[0].name);
-					publisher.setId(results[0].id);
-					publisher.setAddress(results[0].address);
-					publisher.setPhone(results[0].phone);
-					return publisher;
-				});
+	/**
+	 *
+	 * @param id
+	 * @return {*|PromiseLike<Publisher>|Promise<Publisher>}
+	 */
+	provider(id) {
+		let factory = new PublisherFactory();
+		return connection('publishers').where({'publishers.id': id})
+				.then(results => results.map(element => factory.make(element)))
 	}
+	
 	
 	listProvider() {
 		let factory = new PublisherFactory();

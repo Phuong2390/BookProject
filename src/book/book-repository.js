@@ -10,20 +10,21 @@ class BookRepository{
     constructor(connection) {
         this.connection = connection;
     }
-
-    /**
-     *
-     * @param {Book} book
-     * @return {Promise <void>}
-     */
-    add(book) {
-        return this.connection('books').insert({
-            title: book.getTitle(),
-            author: book.getAuthor(),
-            publisher_id: book.getPublisher().getId(),
-            price: book.getPrice()
-        });
-    }
+	
+	/**
+	 *
+	 * @param {Book} book
+	 * @return {Promise <void>}
+	 */
+	add(book) {
+		// console.log(book, book.getPublisher());
+		return this.connection('books').insert({
+			title: book.getTitle(),
+			author: book.getAuthor(),
+			publisher_id: book.getPublisher() ? book.getPublisher().getId():null,
+			price: book.getPrice()
+		});
+	}
 
     /**
      *

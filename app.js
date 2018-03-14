@@ -9,6 +9,7 @@ const connection = require('./database/connection');
 const BookFactory = require('./src/book/book-factory');
 const Searcher = require('./src/search-services/searcher');
 const PublisherProvider = require('./src/publisher/publisher-provider');
+const PublisherFactory = require('./src/publisher/publisher-factory');
 const nunjucks = require('nunjucks');
 
 let index = require('./routes/index');

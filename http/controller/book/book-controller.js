@@ -1,14 +1,12 @@
 class BookController {
 	
-	constructor() {
-	
-	}
-	
-	deleteBook(request, response) {
+	deleteBook(request, response, next) {
 		let repo = request.app.get('books.repo');
-		repo.remove(request.params.id).then(function () {
-			response.status(200).json({message:'Success'});
-		});
+		repo.remove(request.params.id)
+			.then(() => response.redirect('/books'))
+			.catch(function (error) {
+				next(error);
+			});
 	}
 	
 	editBook(request, response) {
@@ -38,17 +36,24 @@ class BookController {
 	
 	createForm(request, response, next) {
 		request.app.get('publishers.provider').listProvider()
-			.then(publishers => response.render('save.njk', {publishers: publishers}))
+			.then(publishers => response.render('createbook.njk', {publishers: publishers}))
 			.catch(next)
 	}
 	
-/*	createBook(request, response, next) {
+	createBook(request, response, next) {
+		console.log (request.body, 'bookController');
 		request.app.get('books.repo').add(request.book)
-			.then(() => response.redirect('/'))
+			.then(() => response.redirect('/books'))
 			.catch(function (error) {
 				next(error);
 			});
-	}*/
+	}
+	
+	editForm(request, response, next) {
+		request.app.get('publishers.provider').listProvider()
+				.then(publishers => response.render('editbook.njk', {publishers: publishers}))
+				.catch(next)
+	}
 }
 
 module.exports = BookController;
