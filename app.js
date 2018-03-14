@@ -8,6 +8,7 @@ const BookRepository = require('./src/book/book-repository');
 const connection = require('./database/connection');
 const BookFactory = require('./src/book/book-factory');
 const Searcher = require('./src/search-services/searcher');
+const PublisherProvider = require('./src/publisher/publisher-provider');
 const nunjucks = require('nunjucks');
 
 let index = require('./routes/index');
@@ -33,6 +34,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.set('books.repo', new BookRepository(connection));
 app.set('book.searcher', new Searcher(connection, new BookFactory()));
 app.set('book.factory', new BookFactory());
+app.set('publishers.provider', new PublisherProvider(connection));
 
 app.use('/', index);
 // app.use('/users', users);

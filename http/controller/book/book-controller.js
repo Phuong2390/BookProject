@@ -4,16 +4,6 @@ class BookController {
 	
 	}
 	
-	createBook(request, response, next) {
-		// console.log(request.book);
-		let repo = request.app.get('books.repo');
-		repo.add(request.book).then(function () {
-			response.status(201).send({message: "Success!"});
-		}).catch(function (err) {
-			next(err);
-		});
-	}
-	
 	deleteBook(request, response) {
 		let repo = request.app.get('books.repo');
 		repo.remove(request.params.id).then(function () {
@@ -37,14 +27,28 @@ class BookController {
 	
 	detail(request, response, next) {
 		request.app.get('book.searcher').search(request.condition)
-				.then(books => {
-					if(!books.length) {
-						return response.status(404).send('Not Found');
-					}
-					response.render('detail.njk', {book:books[0]})
-				})
-				.catch(next)
+			.then(books => {
+				if(!books.length) {
+					return response.status(404).send('Not Found');
+				}
+				response.render('detail.njk', {book:books[0]})
+			})
+			.catch(next)
 	}
+	
+	createForm(request, response, next) {
+		request.app.get('publishers.provider').listProvider()
+			.then(publishers => response.render('save.njk', {publishers: publishers}))
+			.catch(next)
+	}
+	
+/*	createBook(request, response, next) {
+		request.app.get('books.repo').add(request.book)
+			.then(() => response.redirect('/'))
+			.catch(function (error) {
+				next(error);
+			});
+	}*/
 }
 
 module.exports = BookController;

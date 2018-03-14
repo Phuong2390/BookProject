@@ -1,5 +1,6 @@
-Publisher  = require('./publisher');
-connection = require('../../database/connection');
+const Publisher  = require('./publisher');
+const connection = require('../../database/connection');
+const PublisherFactory = require('./publisher-factory');
 
 class PublisherProvider {
 	
@@ -25,6 +26,12 @@ class PublisherProvider {
 				});
 	}
 	
+	listProvider() {
+		let factory = new PublisherFactory();
+		return this.connection.select().from('publishers')
+				.where({deleted_at: null})
+				.then(publisherRaw => publisherRaw.map(element => factory.make(element)));
+	}
 }
 
 module.exports = PublisherProvider;

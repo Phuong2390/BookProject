@@ -31,14 +31,14 @@ class BookFactory {
 		book.setPrice (bookRaw.price);
 		book.setId(bookRaw.id);
 		return connection.table ('publishers').where ({id: bookRaw.publisher_id})
-				.then (result => result.map(element => {
-                    let publisher = new Publisher(element.name);
-                    publisher.setId(element.id);
-                    publisher.setAddress(element.address);
-                    publisher.setPhone(element.phone);
-					book.setPublisher(publisher);
-					return book;
-				})
+			.then (result => result.map(element => {
+				let publisher = new Publisher(element.name);
+				publisher.setId(element.id);
+				publisher.setAddress(element.address);
+				publisher.setPhone(element.phone);
+				book.setPublisher(publisher);
+				return book;
+			})
         );
 	}
 }

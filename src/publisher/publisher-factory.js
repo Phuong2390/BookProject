@@ -1,7 +1,7 @@
  const Publisher = require('./publisher');
 
 class PublisherFactory {
-    static make(publisherRaw) {
+    make(publisherRaw) {
         let publisher = new Publisher(publisherRaw.name);
         publisher.setAddress(publisherRaw.address);
         publisher.setPhone(publisherRaw.phone);

@@ -9,20 +9,24 @@
 <nav>
     <a href="/">Search</a> |
     <a href="/books">List Books</a> |
-    <a href="/add"> Create book </a> |
+    <a href="/create"> Create book </a> |
 </nav>
 <section>
-    <form action="/search-advance" method="get">
+    <form action="/add" method="get">
         <label> Title </label>
         <input type="text" name="title" placeholder=" ">
         <label> Author </label>
         <input type="text" name="author" placeholder=" ">
         <label> Publisher </label>
-        <input type="text" name="publisher" placeholder=" ">
+        <!--<select id="publisher" name="publisher_id">
+            &lt;!&ndash;<option value="">&#45;&#45;chọn&#45;&#45;</option>
+            {% for publisher in publishers %}
+            <option value="{{publisher.id}}">{{publisher.name}}</option>
+            { % endfor %}&ndash;&gt;
+        </select>-->
         <label> Price </label>
         <input type="text" name="price" placeholder=" ">
-        <input type="submit" value="Create">
-        <input type="submit" value="Edit">
+        <input type="submit" value="OK">
     </form>
 </section>
 </body>
