@@ -1,0 +1,36 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>Books</h1>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="/javascript/book-script.js"></script>
+    <nav>
+        <a >Home</a> |
+        <a id="book-all" href="#" >List Book</a> |
+        <a>Create Book</a> |
+        <a id="search" href="#">Search Basic</a> |
+        <a id="search-ad" href="#">Search Advance</a>
+    </nav>
+    <div id="inputKeyword">
+        <input id="keyword" placeholder="keyword">
+        <button>Search</button>
+    </div>
+    <div id="search-adv">
+       Title: <input id="title" placeholder="Title">
+       Author: <input id="author" placeholder="author">
+       Publisher: <input id="publisher" placeholder="publisher">
+        <button type="submit" id="search-advance">Search</button>
+    </div>
+    <section>
+        <form>
+            <ul id="book-list"></ul>
+        </form>
+    </section>
+</body>
+<script id="book-template" type="text/html">
+    <li><a href="#">:bookName:</a></li>
+</script>
+</html>

@@ -32,7 +32,6 @@ class BookFactory {
 		let publisherProvider = new PublisherProvider();
 		return publisherProvider.provider(bookRaw.publisher_id)
 				.then( publisher => {
-					
 					let book = new Book(bookRaw.title, bookRaw.author);
 					book.setPublisher(publisher[0]);
 					book.setPrice(bookRaw.price);

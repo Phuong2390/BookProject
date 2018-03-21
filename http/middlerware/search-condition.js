@@ -14,7 +14,7 @@ function makeCondition(request) {
         return new KeywordSearchCondition(request.query.keyword);
     } else if (request.path === '/books'){
         return new UndeletedSearchCondition();
-    } else if (request.path.toString().startsWith('/book/')) {
+    } else if (request.path.toString().startsWith('/books/')) {
         return new IdSearchCondition(request.params.id);
     }
 }

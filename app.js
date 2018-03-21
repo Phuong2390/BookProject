@@ -9,7 +9,7 @@ const connection = require('./database/connection');
 const BookFactory = require('./src/book/book-factory');
 const Searcher = require('./src/search-services/searcher');
 const PublisherProvider = require('./src/publisher/publisher-provider');
-const PublisherFactory = require('./src/publisher/publisher-factory');
+//const PublisherFactory = require('./src/publisher/publisher-factory');
 const nunjucks = require('nunjucks');
 
 let index = require('./routes/index');
@@ -22,7 +22,7 @@ nunjucks.configure('views', {
 	express: app
 });
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
+app.use(express.static('public'));
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -37,25 +37,7 @@ app.set('book.searcher', new Searcher(connection, new BookFactory()));
 app.set('book.factory', new BookFactory());
 app.set('publishers.provider', new PublisherProvider(connection));
 
-app.use('/', index);
-// app.use('/users', users);
-
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  let err = new Error('Not Found');
-  err.status = 404;
-  next(err);
-});
-
-// error handler
-app.use(function(err, req, res) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
-});
+app.use('/', index.ajax);
+// app.use('/', index.book);
 
 module.exports = app;
