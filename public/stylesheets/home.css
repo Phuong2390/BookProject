@@ -4,8 +4,7 @@ body {
     color: #818181;
 }
 .jumbotron {
-    background-color: #cddaf4;
-    color: #fff;
+    background: url(https://www.brisbane.qld.gov.au/whats-on/event/ashgrove-book-chat-group-10);
     padding: 300px 25px;
     font-family: Montserrat, sans-serif;
 }
